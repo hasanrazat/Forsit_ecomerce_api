@@ -1,0 +1,198 @@
+{
+  "info": {
+    "name": "ForsitEcommerce",
+    "_postman_id": "83680077-cca9-42f3-ac4d-86c2e9b8b8a5",
+    "description": "E-commerce admin API collection for user registration, login, and product operations.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"first_name\": \"Mir Hassan\",\n  \"last_name\": \"Raza\",\n  \"email\": \"hasanrazat@gmail.com\",\n  \"password\": \"pasword123\",\n  \"timezone\": \"Asia/Karachi\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ecommerce/v1/register_user",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1"
+          ],
+          "port": "8000",
+          "path": [
+            "ecommerce",
+            "v1",
+            "register_user"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"hasanrazat@gmail.com\",\n  \"password\": \"pasword123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ecommerce/v1/login_user",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1"
+          ],
+          "port": "8000",
+          "path": [
+            "ecommerce",
+            "v1",
+            "login_user"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_name\": \"Geforce RTX 3090\",\n  \"description\": \"A very pricey nvidia gpu\",\n  \"price\": \"1499.99\",\n  \"category_id\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ecommerce/v1/create_product",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1"
+          ],
+          "port": "8000",
+          "path": [
+            "ecommerce",
+            "v1",
+            "create_product"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Inventory",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 100\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/ecommerce/v1/add_inventory",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1"
+          ],
+          "port": "8000",
+          "path": [
+            "ecommerce",
+            "v1",
+            "add_inventory"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Product",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{jwt_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/ecommerce/v1/get_product?product_id=1",
+          "protocol": "http",
+          "host": [
+            "127.0.0.1"
+          ],
+          "port": "8000",
+          "path": [
+            "ecommerce",
+            "v1",
+            "get_product"
+          ],
+          "query": [
+            {
+              "key": "product_id",
+              "value": "1"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "jwt_token",
+      "value": ""
+    }
+  ]
+}
