@@ -11,7 +11,7 @@ from ..schemas.get_low_stock_products import (
 class GetLowStockProducts(GetResource):
     request_schema = LowStockProductsRequest
     response_schema = LowStockProductsResponse
-    authentication_required = Truee
+    authentication_required = True
 
     # Endpoint details
     api_name = "get_low_stock_products"
